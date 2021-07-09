@@ -91,7 +91,7 @@ const Home: React.FC<PropsType> = ({ launches }) => {
   
   let docs: Array<LaunchType> = []
 
-  if (size > 1) {
+  if (size > 1 && data) {
     for (let i = 0; i < data.length; i++) {
       docs = docs.concat(data[i].docs)
     }
