@@ -73,7 +73,7 @@ const Table = styled.table`
   }
 `
 
-const Status = styled.td<{ status: boolean }>`
+const Status = styled.td<{ status: { type: "Boolean", default: null } }>`
   background: ${props => props.status ? 'green' : props.status != null && 'red'};
   color: ${props => props.status == null ? 'black' : 'white'};
   font-weight: 600;
@@ -133,7 +133,7 @@ const Home: React.FC<PropsType> = ({ launches }) => {
               <Status status={launch.success}>{launch.success ? 'done': launch.success != null && 'fail'}</Status>
               <td>
                 {
-                  launch.date_unix && new Date(launch.date_unix * 1000).toLocaleString('ru', {
+                  launch.date_unix && new Date(+launch.date_unix * 1000).toLocaleString('ru', {
                     year: 'numeric',
                     month: 'numeric',
                     day: 'numeric',
